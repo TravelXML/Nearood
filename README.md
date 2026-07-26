@@ -4,7 +4,7 @@
 
 **Trusted people. Meaningful moments. Nearby.**
 
-A safe, identity-verified neighbourhood platform for discovering local events, offering and requesting assistance, and building real trust between neighbours — built with Flutter and Supabase.
+A safe, identity-verified neighbourhood platform for discovering local events, offering and requesting assistance, and building real trust between neighbours - built with Flutter and Supabase.
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.44-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![Supabase](https://img.shields.io/badge/Backend-Supabase-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com)
