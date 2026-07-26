@@ -16,7 +16,7 @@ A safe, identity-verified neighbourhood platform for discovering local events, o
 
 ## Overview
 
-Neighbourly combines the best parts of local meetup platforms, neighbourhood communities, and trusted assistance services into a single, safety-first experience. Neighbours can host or join weekend dinners, walking groups, cultural events and skill-shares, or request/offer everyday help — grocery runs, senior companionship, local travel — with identity verification introduced exactly where it matters: the moment someone commits to meeting in person, not as a signup wall.
+Neighbourly combines the best parts of local meetup platforms, neighbourhood communities, and trusted assistance services into a single, safety-first experience. Neighbours can host or join weekend dinners, walking groups, cultural events and skill-shares, or request/offer everyday help - grocery runs, senior companionship, local travel - with identity verification introduced exactly where it matters: the moment someone commits to meeting in person, not as a signup wall.
 
 The product design originated as a set of high-fidelity Stitch mockups (see [Design Reference](#design-reference) below); this repository is the working Flutter implementation, wired to a live Supabase backend.
 
