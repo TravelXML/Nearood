@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neighbourly | Identity Verification</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2d2a5b",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#5148d7",
+                    "on-secondary-fixed-variant": "#783200",
+                    "outline": "#777586",
+                    "inverse-primary": "#c3c0ff",
+                    "secondary-fixed": "#ffdbca",
+                    "surface": "#fcf8ff",
+                    "surface-container": "#efebff",
+                    "on-surface-variant": "#464554",
+                    "primary": "#2a14b4",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "surface-container-highest": "#e3dfff",
+                    "on-error": "#ffffff",
+                    "tertiary": "#692400",
+                    "on-primary-fixed-variant": "#372abf",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3eeff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-secondary-container": "#5c2400",
+                    "on-tertiary-container": "#ffb393",
+                    "surface-variant": "#e3dfff",
+                    "on-background": "#181445",
+                    "secondary": "#9d4300",
+                    "surface-container-high": "#e9e5ff",
+                    "background": "#fcf8ff",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#dad6ff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#360f00",
+                    "primary-container": "#4338ca",
+                    "surface-container-low": "#f6f2ff",
+                    "on-surface": "#181445",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c7c4d7",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "primary-fixed": "#e3dfff",
+                    "on-primary-fixed": "#100069",
+                    "secondary-container": "#fd761a",
+                    "surface-bright": "#fcf8ff",
+                    "secondary-fixed-dim": "#ffb690",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-fixed-dim": "#ffb597",
+                    "on-primary-container": "#c1beff",
+                    "tertiary-container": "#8f3400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "container-max": "1280px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "lg": "40px",
+                    "xl": "64px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Comfortaa"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-sm": ["Comfortaa"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Comfortaa"],
+                    "display-lg-mobile": ["Comfortaa"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { color: #2a14b4; font-weight: 700; }
+        .step-line { height: 2px; flex-grow: 1; background-color: #c7c4d7; }
+        .step-line-active { background-color: #2a14b4; }
+        .ambient-shadow { box-shadow: 0 4px 12px rgba(42, 20, 180, 0.08); }
+        .blob-bg {
+            position: absolute;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.15;
+            border-radius: 50%;
+        }
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<header class="bg-surface-bright shadow-sm sticky top-0 z-50 flex justify-between items-center w-full px-sm py-xs">
+<div class="flex items-center gap-base">
+<img alt="Neighbourly Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLshgEiMJUUelpG9oQHg-SHKmu_gMojKxODKr4tuBpcm-LuoAwo0BwtmavQipKXAhD8mgCAa6bGgcd85zdkuWkCEdsqH0GjMtkPY8FsjqqoF-5BvIHeRED0yKy8CQ8M6zlq2XKOkOWpozBYJCBqY684egEQ4vNqVs3tIkT8kVZEq3wjPcwflu2kkugFhM9e6NbjNgg7iADl-px0fq9hCt_f9rgpQNUwuHtaTfPg4V53OlWzeA7hXxNrNmjg"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">close</span>
+</button>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-md py-lg relative">
+<!-- Decorative Background Blobs -->
+<div class="blob-bg bg-primary w-96 h-96 -top-20 -left-20"></div>
+<div class="blob-bg bg-secondary w-80 h-80 top-1/2 -right-20"></div>
+<div class="max-w-2xl mx-auto">
+<!-- Stepper -->
+<div class="flex items-center justify-between mb-xl">
+<div class="flex flex-col items-center gap-xs">
+<div class="w-10 h-10 rounded-full border-2 border-primary bg-primary text-on-primary flex items-center justify-center font-bold font-label-md" id="step-1-circle">1</div>
+<span class="font-label-md text-label-md text-primary">Method</span>
+</div>
+<div class="step-line mx-4" id="line-1"></div>
+<div class="flex flex-col items-center gap-xs">
+<div class="w-10 h-10 rounded-full border-2 border-outline text-on-surface-variant flex items-center justify-center font-bold font-label-md" id="step-2-circle">2</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Consent</span>
+</div>
+<div class="step-line mx-4" id="line-2"></div>
+<div class="flex flex-col items-center gap-xs">
+<div class="w-10 h-10 rounded-full border-2 border-outline text-on-surface-variant flex items-center justify-center font-bold font-label-md" id="step-3-circle">3</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Verify</span>
+</div>
+</div>
+<!-- Page Header -->
+<div class="text-center mb-xl">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-xs">Identity Verification</h1>
+<p class="text-body-lg text-on-surface-variant">Verified neighbors keep our community safe and reliable.</p>
+</div>
+<!-- Screen 1: Select Method -->
+<section class="space-y-md" id="screen-1">
+<div class="bg-surface-container-lowest p-md rounded-xl ambient-shadow border-2 border-transparent hover:border-primary cursor-pointer transition-all flex items-center gap-md group" onclick="selectMethod('aadhaar')">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex items-center justify-center group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container text-4xl">fingerprint</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Aadhaar (Government ID)</h3>
+<p class="text-body-md text-on-surface-variant">Verify using your UIDAI number via OTP. Quickest method.</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary">arrow_forward_ios</span>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl ambient-shadow border-2 border-transparent hover:border-primary cursor-pointer transition-all flex items-center gap-md group opacity-70" onclick="selectMethod('other')">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">badge</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Driver's License / PAN</h3>
+<p class="text-body-md text-on-surface-variant">Requires manual photo upload. Takes 24-48 hours.</p>
+</div>
+<span class="material-symbols-outlined text-outline">lock</span>
+</div>
+<!-- Badges Preview -->
+<div class="flex flex-wrap gap-sm justify-center pt-md">
+<div class="inline-flex items-center gap-xs px-4 py-2 bg-primary-container text-on-primary-container rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    Identity Verified
+                </div>
+<div class="inline-flex items-center gap-xs px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Aadhaar Verified
+                </div>
+</div>
+</section>
+<!-- Screen 2: Consent (Hidden) -->
+<section class="hidden animate-in fade-in slide-in-from-right-4 duration-500" id="screen-2">
+<div class="bg-surface-container-lowest p-lg rounded-xl ambient-shadow space-y-md">
+<div class="flex justify-center mb-sm">
+<span class="material-symbols-outlined text-primary text-6xl">security</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface text-center">Your Privacy Matters</h2>
+<div class="space-y-sm text-on-surface-variant border-y border-outline-variant py-md">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-1">shield</span>
+<p class="text-body-md"><strong class="font-semibold">Strict Privacy:</strong> We never share your full ID number or document photos with other neighbors.</p>
+</div>
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-1">verified_user</span>
+<p class="text-body-md"><strong class="font-semibold">Verified Badging:</strong> Only the "Verified" badge will appear on your profile to build trust.</p>
+</div>
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-1">gavel</span>
+<p class="text-body-md"><strong class="font-semibold">Regulatory Compliance:</strong> We adhere to all local data protection laws regarding PII (Personally Identifiable Information).</p>
+</div>
+</div>
+<div class="flex items-center gap-sm p-sm bg-surface-container rounded-lg">
+<input class="w-5 h-5 text-primary border-outline rounded focus:ring-primary" id="consent-check" type="checkbox"/>
+<label class="font-label-md text-label-md text-on-surface cursor-pointer" for="consent-check">I consent to Neighbourly verifying my identity using the provided documents.</label>
+</div>
+<div class="flex gap-sm pt-sm">
+<button class="flex-1 py-3 px-md rounded-full border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="navigate(1)">Back</button>
+<button class="flex-1 py-3 px-md rounded-full bg-primary text-on-primary font-label-md text-label-md opacity-50 cursor-not-allowed active:scale-95 transition-all" disabled="" id="consent-btn" onclick="navigate(3)">Agree &amp; Continue</button>
+</div>
+</div>
+</section>
+<!-- Screen 3: Aadhaar Verification (Hidden) -->
+<section class="hidden animate-in fade-in slide-in-from-right-4 duration-500" id="screen-3">
+<div class="bg-surface-container-lowest p-lg rounded-xl ambient-shadow space-y-lg">
+<div class="flex flex-col items-center">
+<div class="w-full h-48 bg-surface-container rounded-xl overflow-hidden relative group">
+<img alt="ID Verification Illustration" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Sh9c4WvmyvjHV8QvkDzzIL_Flfi3iJ_euyfQe4ygyiiDDes8_LuCh-Us3uRVMKExArBM5iEfrSN36K95loNg7wkp1G6Uh0apkLcIFaYPYsRtYq9O2Kd1T2JnLK13W4ADLibc_0HqYzVlu_Nx9QB0RKJFhq3ILLdrvLXeYAyTZF4kC24cnP_g7j68Lz275fDlJNcQdMi98VYhGCTddayZY2uFceIHkbwfhu6dSfec-GLDABeeQi-BEMsFaPfRHJI1tiVWsnDDNLnU"/>
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">document_scanner</span>
+</div>
+</div>
+<p class="text-center mt-sm font-label-md text-label-md text-on-surface-variant">Please provide your 12-digit Aadhaar number</p>
+</div>
+<div class="space-y-md">
+<div class="relative">
+<label class="font-label-md text-label-md text-on-surface-variant mb-xs block">Aadhaar Number</label>
+<input class="w-full p-md text-center text-2xl tracking-widest border-2 border-outline-variant rounded-xl focus:border-primary focus:ring-0 transition-colors bg-surface-bright font-label-md" maxlength="14" placeholder="XXXX-XXXX-XXXX" type="text"/>
+</div>
+<div class="hidden space-y-sm" id="otp-section">
+<label class="font-label-md text-label-md text-on-surface-variant mb-xs block text-center">Enter 6-digit OTP sent to your registered mobile</label>
+<div class="flex justify-center gap-sm">
+<input class="w-12 h-14 text-center text-xl font-bold border-2 border-outline-variant rounded-lg focus:border-primary focus:ring-0 font-label-md" maxlength="1" type="text"/>
+<input class="w-12 h-14 text-center text-xl font-bold border-2 border-outline-variant rounded-lg focus:border-primary focus:ring-0 font-label-md" maxlength="1" type="text"/>
+<input class="w-12 h-14 text-center text-xl font-bold border-2 border-outline-variant rounded-lg focus:border-primary focus:ring-0 font-label-md" maxlength="1" type="text"/>
+<input class="w-12 h-14 text-center text-xl font-bold border-2 border-outline-variant rounded-lg focus:border-primary focus:ring-0 font-label-md" maxlength="1" type="text"/>
+<input class="w-12 h-14 text-center text-xl font-bold border-2 border-outline-variant rounded-lg focus:border-primary focus:ring-0 font-label-md" maxlength="1" type="text"/>
+<input class="w-12 h-14 text-center text-xl font-bold border-2 border-outline-variant rounded-lg focus:border-primary focus:ring-0 font-label-md" maxlength="1" type="text"/>
+</div>
+</div>
+<button class="w-full py-md rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm shadow-lg active:scale-95 transition-transform" id="verify-btn" onclick="startOtp()">Send OTP</button>
+</div>
+<div class="flex items-center gap-xs justify-center text-on-surface-variant p-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="text-label-sm font-label-sm">We never share your full ID number with others.</span>
+</div>
+</div>
+</section>
+<!-- Screen 4: Success (Hidden) -->
+<section class="hidden text-center space-y-lg animate-in zoom-in duration-700" id="screen-4">
+<div class="w-24 h-24 bg-surface-container rounded-full flex items-center justify-center mx-auto shadow-lg">
+<span class="material-symbols-outlined text-6xl text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface">Verification Successful!</h2>
+<p class="text-body-lg text-on-surface-variant max-w-sm mx-auto">Your identity has been verified. You now have the full trust of your neighbors.</p>
+</div>
+<div class="flex flex-col gap-sm items-center">
+<div class="inline-flex items-center gap-xs px-6 py-3 bg-primary-container text-on-primary-container rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    Identity Verified
+                </div>
+</div>
+<button class="w-full py-md rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm shadow-lg active:scale-95 transition-transform mt-md">Back to Profile</button>
+</section>
+</div>
+</main>
+<!-- Bottom Notification Toast -->
+<div class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-lg py-sm rounded-full shadow-xl opacity-0 translate-y-10 transition-all duration-300 pointer-events-none flex items-center gap-sm z-[100]" id="toast">
+<span class="material-symbols-outlined text-secondary-fixed">info</span>
+<span class="text-label-md">OTP Sent successfully!</span>
+</div>
+<script>
+    function selectMethod(method) {
+        if(method === 'aadhaar') {
+            navigate(2);
+        }
+    }
+
+    function navigate(step) {
+        const screens = ['screen-1', 'screen-2', 'screen-3', 'screen-4'];
+        screens.forEach((id, idx) => {
+            document.getElementById(id).classList.toggle('hidden', idx !== step - 1);
+        });
+
+        // Update Stepper
+        const circles = [
+            document.getElementById('step-1-circle'),
+            document.getElementById('step-2-circle'),
+            document.getElementById('step-3-circle')
+        ];
+        const lines = [
+            document.getElementById('line-1'),
+            document.getElementById('line-2')
+        ];
+
+        circles.forEach((circle, idx) => {
+            if (step >= idx + 1) {
+                circle.classList.add('bg-primary', 'text-on-primary', 'border-primary');
+                circle.classList.remove('border-outline', 'text-on-surface-variant');
+            } else {
+                circle.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
+                circle.classList.add('border-outline', 'text-on-surface-variant');
+            }
+        });
+
+        lines.forEach((line, idx) => {
+            if (step >= idx + 2) {
+                line.classList.add('step-line-active');
+            } else {
+                line.classList.remove('step-line-active');
+            }
+        });
+    }
+
+    // Handle consent checkbox
+    const consentCheck = document.getElementById('consent-check');
+    const consentBtn = document.getElementById('consent-btn');
+    if(consentCheck && consentBtn) {
+        consentCheck.addEventListener('change', () => {
+            consentBtn.disabled = !consentCheck.checked;
+            consentBtn.classList.toggle('opacity-50', !consentCheck.checked);
+            consentBtn.classList.toggle('cursor-not-allowed', !consentCheck.checked);
+        });
+    }
+
+    // OTP Simulation
+    function startOtp() {
+        const btn = document.getElementById('verify-btn');
+        if (btn.innerText === 'Send OTP') {
+            btn.innerHTML = '<span class="flex items-center justify-center gap-xs"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...</span>';
+            
+            setTimeout(() => {
+                document.getElementById('otp-section').classList.remove('hidden');
+                btn.innerText = 'Verify & Complete';
+                showToast();
+            }, 1200);
+        } else {
+            btn.innerHTML = '<span class="flex items-center justify-center gap-xs"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Verifying...</span>';
+            setTimeout(() => {
+                navigate(4);
+            }, 1500);
+        }
+    }
+
+    function showToast() {
+        const toast = document.getElementById('toast');
+        toast.classList.remove('opacity-0', 'translate-y-10');
+        setTimeout(() => {
+            toast.classList.add('opacity-0', 'translate-y-10');
+        }, 3000);
+    }
+
+    // Auto-focus logic for OTP inputs
+    const otpInputs = document.querySelectorAll('#otp-section input');
+    otpInputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+            if (e.target.value.length > 0 && index < otpInputs.length - 1) {
+                otpInputs[index + 1].focus();
+            }
+        });
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && e.target.value.length === 0 && index > 0) {
+                otpInputs[index - 1].focus();
+            }
+        });
+    });
+</script>
+</body></html>

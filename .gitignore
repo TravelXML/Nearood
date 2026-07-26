@@ -1,0 +1,15 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Credentials — never commit real Supabase/API keys or DB passwords.
+# app/ and supabase/ have their own .gitignore entries for this too.
+.env
+.env.*
+!.env.*.example
+*.pem
+*.key

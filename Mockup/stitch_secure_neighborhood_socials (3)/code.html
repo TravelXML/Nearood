@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Welcome to Neighbourly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2d2a5b",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#5148d7",
+                    "on-secondary-fixed-variant": "#783200",
+                    "outline": "#777586",
+                    "inverse-primary": "#c3c0ff",
+                    "secondary-fixed": "#ffdbca",
+                    "surface": "#fcf8ff",
+                    "surface-container": "#efebff",
+                    "on-surface-variant": "#464554",
+                    "primary": "#2a14b4",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "surface-container-highest": "#e3dfff",
+                    "on-error": "#ffffff",
+                    "tertiary": "#692400",
+                    "on-primary-fixed-variant": "#372abf",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3eeff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-secondary-container": "#5c2400",
+                    "on-tertiary-container": "#ffb393",
+                    "surface-variant": "#e3dfff",
+                    "on-background": "#181445",
+                    "secondary": "#9d4300",
+                    "surface-container-high": "#e9e5ff",
+                    "background": "#fcf8ff",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#dad6ff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#360f00",
+                    "primary-container": "#4338ca",
+                    "surface-container-low": "#f6f2ff",
+                    "on-surface": "#181445",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c7c4d7",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "primary-fixed": "#e3dfff",
+                    "on-primary-fixed": "#100069",
+                    "secondary-container": "#fd761a",
+                    "surface-bright": "#fcf8ff",
+                    "secondary-fixed-dim": "#ffb690",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-fixed-dim": "#ffb597",
+                    "on-primary-container": "#c1beff",
+                    "tertiary-container": "#8f3400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "container-max": "1280px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "md": "24px",
+                    "lg": "40px",
+                    "xl": "64px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Comfortaa"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-sm": ["Comfortaa"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Comfortaa"],
+                    "display-lg-mobile": ["Comfortaa"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .slide-container {
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        .slide-container::-webkit-scrollbar {
+            display: none;
+        }
+        .slide {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            width: 100%;
+        }
+        .ambient-glow {
+            filter: blur(80px);
+            opacity: 0.15;
+            background: radial-gradient(circle, #5148d7 0%, transparent 70%);
+        }
+        .card-shadow {
+            box-shadow: 0 4px 12px rgba(42, 20, 180, 0.08);
+        }
+        @media (max-width: 768px) {
+            .mobile-padding { padding-left: 16px; padding-right: 16px; }
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: max(884px, 100dvh);
+        }
+        h1, h2, h3 {
+            font-family: 'Comfortaa', cursive;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background overflow-hidden antialiased">
+<!-- Background Atmospheric Decor -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="ambient-glow absolute -top-20 -left-20 w-96 h-96 rounded-full"></div>
+<div class="ambient-glow absolute -bottom-20 -right-20 w-96 h-96 rounded-full" style="background: radial-gradient(circle, #fd761a 0%, transparent 70%);"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 h-screen flex flex-col max-w-[500px] mx-auto bg-surface-container-lowest shadow-2xl">
+<!-- Header / Logo Area -->
+<header class="pt-xl pb-md px-md text-center flex flex-col items-center">
+<img alt="Neighbourly Logo" class="h-12 w-auto mb-2 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLshgEiMJUUelpG9oQHg-SHKmu_gMojKxODKr4tuBpcm-LuoAwo0BwtmavQipKXAhD8mgCAa6bGgcd85zdkuWkCEdsqH0GjMtkPY8FsjqqoF-5BvIHeRED0yKy8CQ8M6zlq2XKOkOWpozBYJCBqY684egEQ4vNqVs3tIkT8kVZEq3wjPcwflu2kkugFhM9e6NbjNgg7iADl-px0fq9hCt_f9rgpQNUwuHtaTfPg4V53OlWzeA7hXxNrNmjg"/>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight hidden" style="display: none;">Neighbourly</h1>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Building Community</p>
+</header>
+<!-- Onboarding Carousel -->
+<div class="flex-grow slide-container flex overflow-x-auto overflow-y-hidden" id="carousel">
+<!-- Slide 1: Discover -->
+<section class="slide flex flex-col px-md text-center">
+<div class="h-[320px] mb-lg flex items-center justify-center relative">
+<div class="absolute inset-0 bg-primary-fixed/30 rounded-[48px] rotate-3 -z-10"></div>
+<div class="bg-white rounded-[40px] w-full h-full p-4 card-shadow overflow-hidden">
+<img class="w-full h-full object-cover rounded-[32px]" data-alt="A warm and detailed flat-style illustration of a sunny neighborhood street with diverse neighbors greeting each other over white picket fences." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2q4_Gq-FR5JGk1-isypLKP6STjpIrmDRbosQ1vTCcWNqS7Vt15WbBkL_aEfCdOt1ighacH36Yeqn_q5ZWgIrKyvDPMJxgi65AL1ew_Nsg8Ikw8NFnlo93vobG80DwNwGSh-GZgODASzXzrDkCJm48CDp5ywI2Gm-Y8pEht8BekDHpj4MUA2gHLyGj1RCFPXWx3iy8xbXgbK6NNYpe_IJxgVObePnQWNawhiTMusSFzx86vkcno44k_5YvdczIMnbsh7fKR96B_mSS"/>
+</div>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-sm">Discover trusted neighbours nearby.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Connect with identity-verified people in your immediate area to build a safer, friendlier street.
+                </p>
+</section>
+<!-- Slide 2: Experiences -->
+<section class="slide flex flex-col px-md text-center">
+<div class="h-[320px] mb-lg flex items-center justify-center relative">
+<div class="absolute inset-0 bg-secondary-fixed/30 rounded-[48px] -rotate-3 -z-10"></div>
+<div class="bg-white rounded-[40px] w-full h-full p-4 card-shadow overflow-hidden">
+<img class="w-full h-full object-cover rounded-[32px]" data-alt="A charming illustration of a community dinner in a shared garden space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ0zMxi_xJDL1Jm7-Ferhelr3twWhPIByJo5XPfUkYXcd6i0q1mmK5mIM4N9-GJznBMz6fSCj3m5LM5rG3BEAvu3Mv1QLMd-0mpcfvYoN41sAl4Tzp0FXSDWiQhzOZ6FtofwBKRI6xx12q3y5y4bsaCdU6YztSXJTeKwBF7QZaKJBEaUtyTTK08Mg3Lt-KzDalotZK_R_3z5VYzgXsFv8KAzp4h4Q-3ewp63YFfy6KUAwI14xYrLtUtZzwGpOZSKBEYNqzTXqApcJw"/>
+</div>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-sm">Join dinners, activities, and local experiences.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    From book clubs to shared garden dinners, find real-world ways to engage with your community.
+                </p>
+</section>
+<!-- Slide 3: Help -->
+<section class="slide flex flex-col px-md text-center">
+<div class="h-[320px] mb-lg flex items-center justify-center relative">
+<div class="absolute inset-0 bg-tertiary-fixed/30 rounded-[48px] rotate-6 -z-10"></div>
+<div class="bg-white rounded-[40px] w-full h-full p-4 card-shadow overflow-hidden">
+<img class="w-full h-full object-cover rounded-[32px]" data-alt="A heartwarming digital illustration showing neighbors helping each other." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSeW5QqRmLGxVSedAwQOqo6pMHw_6db0lI5Ct27SqmkaQtvrcyEkfNKH-RTU3Ujd4RKH-C2kow_QbbJHlvxzmBGf_tkRCLKA8XgTOPWDXpdhcqYLpWws0xLsAQCJpM4CYwWSfCcmIGgdo5fYsxjNvLxh98uj6PgCluFKO324_6SK-2bNNi-EIR9H2eV9UmmxRcIE0Fy6jTS_tpWDHk-4PC6iZ_q1ycpZSI0zrALP51YBlsns3r7fOtIwXDDIMRUwAsWamgBlS4OSVL"/>
+</div>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-sm">Get or offer help safely within your community.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Lend a hand with grocery runs or borrow a tool. Verification ensures everyone's safety and peace of mind.
+                </p>
+</section>
+</div>
+<!-- Pagination & Actions -->
+<footer class="mt-auto px-md pb-xl pt-md">
+<!-- Indicators -->
+<div class="flex justify-center gap-xs mb-lg">
+<div class="h-2 w-8 rounded-full bg-primary transition-all duration-300" id="dot-0"></div>
+<div class="h-2 w-2 rounded-full bg-surface-container-highest transition-all duration-300" id="dot-1"></div>
+<div class="h-2 w-2 rounded-full bg-surface-container-highest transition-all duration-300" id="dot-2"></div>
+</div>
+<!-- Action Stack -->
+<div class="flex flex-col gap-sm">
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-label-md flex items-center justify-center gap-2 active:scale-95 transition-transform" onclick="window.location.reload()">
+                    Get Started
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<div class="grid grid-cols-2 gap-sm">
+<button class="py-4 border-2 border-primary text-primary rounded-xl font-label-md active:scale-95 transition-transform">
+                        Sign In
+                    </button>
+<button class="py-4 border-2 border-secondary-container text-secondary-container rounded-xl font-label-md active:scale-95 transition-transform flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[18px]">elderly</span>
+                        Senior Cit.
+                    </button>
+</div>
+<div class="mt-4 flex items-center justify-center gap-2">
+<div class="flex bg-primary/10 px-3 py-1.5 rounded-full items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-label-sm text-primary">Identity Verified Community</span>
+</div>
+</div>
+</div>
+</footer>
+</main>
+<script>
+        const carousel = document.getElementById('carousel');
+        const dots = [
+            document.getElementById('dot-0'),
+            document.getElementById('dot-1'),
+            document.getElementById('dot-2')
+        ];
+
+        carousel.addEventListener('scroll', () => {
+            const scrollLeft = carousel.scrollLeft;
+            const width = carousel.offsetWidth;
+            const activeIndex = Math.round(scrollLeft / width);
+
+            dots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                    dot.classList.add('w-8', 'bg-primary');
+                    dot.classList.remove('w-2', 'bg-surface-container-highest');
+                } else {
+                    dot.classList.remove('w-8', 'bg-primary');
+                    dot.classList.add('w-2', 'bg-surface-container-highest');
+                }
+            });
+        });
+
+        let lastIndex = 0;
+        carousel.addEventListener('scroll', () => {
+            const activeIndex = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+            if (activeIndex !== lastIndex) {
+                lastIndex = activeIndex;
+                if (window.navigator.vibrate) window.navigator.vibrate(5);
+            }
+        });
+    </script>
+</body></html>
