@@ -33,24 +33,30 @@ The product design originated as a set of high-fidelity Stitch mockups (see [Des
 
 ## Design Reference
 
-The visual language — colour system, typography (Comfortaa + Plus Jakarta Sans), spacing and component shapes — comes from the original Stitch design mockups in [`Mockup/`](Mockup/), implemented faithfully in the Flutter app's [theme layer](app/lib/theme/).
+The visual language — colour system, typography (Comfortaa + Plus Jakarta Sans), spacing and component shapes — comes from the original Stitch design mockups in [`Mockup/`](Mockup/), implemented faithfully in the Flutter app's [theme layer](app/lib/theme/). All four raw exports delivered for this project are below (two are alternate exports of the same Identity Verification screen).
 
 <table>
 <tr>
-<td width="33%" align="center">
-<img src="docs/screenshots/01-splash-welcome.png" width="260" alt="Splash and welcome screen"/>
+<td width="25%" align="center">
+<img src="docs/screenshots/01-splash-welcome.png" width="220" alt="Splash and welcome screen"/>
 <br/><sub><b>Welcome</b></sub>
 </td>
-<td width="33%" align="center">
-<img src="docs/screenshots/02-onboarding.png" width="260" alt="Onboarding carousel"/>
+<td width="25%" align="center">
+<img src="docs/screenshots/02-onboarding.png" width="220" alt="Onboarding carousel"/>
 <br/><sub><b>Onboarding</b></sub>
 </td>
-<td width="33%" align="center">
-<img src="docs/screenshots/03-identity-verification.png" width="260" alt="Identity verification flow"/>
+<td width="25%" align="center">
+<img src="docs/screenshots/03-identity-verification.png" width="220" alt="Identity verification flow"/>
 <br/><sub><b>Identity Verification</b></sub>
+</td>
+<td width="25%" align="center">
+<img src="docs/screenshots/03b-identity-verification-alt-export.png" width="220" alt="Identity verification flow, alternate export"/>
+<br/><sub><b>Identity Verification</b> (alt export)</sub>
 </td>
 </tr>
 </table>
+
+Full-resolution originals, along with the Stitch-generated `DESIGN.md` (design tokens) and `code.html` (reference markup) for each screen, are in [`Mockup/`](Mockup/).
 
 <details>
 <summary><b>Responsive layout</b> — mobile-first, letterboxed on desktop web rather than stretched</summary>
