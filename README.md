@@ -33,7 +33,7 @@ The product design originated as a set of high-fidelity Stitch mockups (see [Des
 
 ## Design Reference
 
-The visual language — colour system, typography (Comfortaa + Plus Jakarta Sans), spacing and component shapes — comes from the original Stitch design mockups in [`Mockup/`](Mockup/), implemented faithfully in the Flutter app's [theme layer](app/lib/theme/). All four raw exports delivered for this project are below (two are alternate exports of the same Identity Verification screen).
+The visual language - colour system, typography (Comfortaa + Plus Jakarta Sans), spacing and component shapes - comes from the original Stitch design mockups in [`Mockup/`](Mockup/), implemented faithfully in the Flutter app's [theme layer](app/lib/theme/). All four raw exports delivered for this project are below (two are alternate exports of the same Identity Verification screen).
 
 <table>
 <tr>
