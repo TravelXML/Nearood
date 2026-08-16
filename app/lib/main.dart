@@ -14,16 +14,16 @@ Future<void> main() async {
       publishableKey: SupabaseConfig.anonKey,
     );
   }
-  runApp(const NeighbourlyApp());
+  runApp(const NearoodApp());
 }
 
-class NeighbourlyApp extends StatelessWidget {
-  const NeighbourlyApp({super.key});
+class NearoodApp extends StatelessWidget {
+  const NearoodApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Neighbourly',
+      title: 'Nearood',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       // This is a mobile-first design. On wide (desktop web) viewports,

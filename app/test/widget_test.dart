@@ -5,7 +5,7 @@ import 'package:neighbourly/screens/splash_screen.dart';
 import 'package:neighbourly/screens/welcome_screen.dart';
 import 'package:neighbourly/theme/app_theme.dart';
 
-// These tests deliberately pump individual screens (not NeighbourlyApp)
+// These tests deliberately pump individual screens (not NearoodApp)
 // so they don't need a live Supabase connection: main.dart's entry point
 // now depends on Supabase being initialized, and screens past Welcome
 // (Sign In, Explore, Profile, ...) talk to a real backend. Testing those

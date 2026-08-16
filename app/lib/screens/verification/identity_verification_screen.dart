@@ -9,7 +9,7 @@ import '../../widgets/trust_badge.dart';
 import '../shell/app_shell.dart';
 
 /// Multi-step identity verification flow: Method -> Consent -> Aadhaar+OTP
-/// -> Success. Matches the "Neighbourly | Identity Verification" mockup.
+/// -> Success. Matches the "Nearood | Identity Verification" mockup.
 ///
 /// Not part of onboarding — this is only ever pushed at the moment someone
 /// needs it, e.g. tapping "Request to Join" on an event while unverified.
@@ -54,7 +54,7 @@ class _IdentityVerificationScreenState
         title: const Text('Skip for now?'),
         content: Text(
           widget.purpose == null
-              ? "You can explore Neighbourly first. We'll ask again the "
+              ? "You can explore Nearood first. We'll ask again the "
                   'next time you need it, like requesting to join an event.'
               : "You won't be able to complete this until you verify. "
                   'You can come back to it anytime from your profile.',
@@ -500,7 +500,7 @@ class _ConsentStep extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () => onChanged(!checked),
                     child: Text(
-                      'I consent to Neighbourly verifying my identity using the provided documents.',
+                      'I consent to Nearood verifying my identity using the provided documents.',
                       style: AppTextStyles.labelMd,
                     ),
                   ),
@@ -773,7 +773,7 @@ class _SuccessStep extends StatelessWidget {
         Text('Verification submitted', style: AppTextStyles.displayLgMobile, textAlign: TextAlign.center),
         const SizedBox(height: AppSpacing.base),
         Text(
-          "We'll review it and notify you once it's confirmed. You can keep using Neighbourly in the meantime.",
+          "We'll review it and notify you once it's confirmed. You can keep using Nearood in the meantime.",
           textAlign: TextAlign.center,
           style: AppTextStyles.bodyLg,
         ),

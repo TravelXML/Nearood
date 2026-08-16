@@ -1,11 +1,11 @@
 {
-    "name": "neighbourly",
-    "short_name": "neighbourly",
+    "name": "Nearood",
+    "short_name": "Nearood",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Trusted people. Meaningful moments. Nearby.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
