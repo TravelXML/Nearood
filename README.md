@@ -59,7 +59,7 @@ The visual language - colour system, typography (Comfortaa + Plus Jakarta Sans),
 Full-resolution originals, along with the Stitch-generated `DESIGN.md` (design tokens) and `code.html` (reference markup) for each screen, are in [`Mockup/`](Mockup/).
 
 <details>
-<summary><b>Responsive layout</b> — mobile-first, letterboxed on desktop web rather than stretched</summary>
+<summary><b>Responsive layout</b> - mobile-first, letterboxed on desktop web rather than stretched</summary>
 <br/>
 <img src="docs/screenshots/04-responsive-desktop.png" width="640" alt="Desktop responsive layout"/>
 </details>
@@ -69,7 +69,7 @@ Full-resolution originals, along with the Stitch-generated `DESIGN.md` (design t
 ### Onboarding & Identity
 - Splash → Welcome → 3-slide onboarding carousel
 - Email OTP sign-in/sign-up and Google OAuth via Supabase Auth
-- Self-declared Aadhaar/government ID verification, requested **only at the moment it's needed** (requesting to join an event), not as a signup gate — submissions are queued for human review, not auto-approved (see [Trust & Safety](#trust--safety) note below)
+- Self-declared Aadhaar/government ID verification, requested **only at the moment it's needed** (requesting to join an event), not as a signup gate - submissions are queued for human review, not auto-approved (see [Trust & Safety](#trust--safety) note below)
 - First-run neighbourhood selection via device geolocation or manual search (OpenStreetMap Nominatim)
 
 ### Discovery
@@ -81,23 +81,23 @@ Full-resolution originals, along with the Stitch-generated `DESIGN.md` (design t
 ### Hosting
 - Full event creation flow: category, title, description, location, date/time, capacity, free/paid pricing, eligibility tags
 - Host dashboard listing all events you're running, with a live pending-request badge
-- Request management per event — accept or reject each join request
+- Request management per event - accept or reject each join request
 
 ### Trust & Safety
 - Verification status (none / pending / approved / rejected) surfaced on Profile and gating join requests
 - Floating safety (SOS) entry point from the main app shell
-- Row Level Security enforced at the database layer for every table — see [Database Schema](#database-schema)
+- Row Level Security enforced at the database layer for every table - see [Database Schema](#database-schema)
 
-> **Note on identity verification:** real UIDAI/Aadhaar verification requires a licensed KYC provider (AUA/KUA) integration, which is out of scope for this build. The current flow captures a self-declared ID (last 4 digits only) for a human admin to review via the Supabase dashboard — it is intentionally **not** presented as a verified government check.
+> **Note on identity verification:** real UIDAI/Aadhaar verification requires a licensed KYC provider (AUA/KUA) integration, which is out of scope for this build. The current flow captures a self-declared ID (last 4 digits only) for a human admin to review via the Supabase dashboard - it is intentionally **not** presented as a verified government check.
 
 ## Tech Stack
 
 | Layer | Choice |
 |---|---|
 | Client | Flutter (Dart 3.12, Material 3), targeting Web/iOS/Android |
-| Backend | Supabase — Postgres, Auth (Email OTP + OAuth), Row Level Security |
+| Backend | Supabase - Postgres, Auth (Email OTP + OAuth), Row Level Security |
 | Location | `geolocator` + OpenStreetMap Nominatim (free, no API key) |
-| State | Lightweight `ChangeNotifier` session singleton — no external state management dependency |
+| State | Lightweight `ChangeNotifier` session singleton - no external state management dependency |
 
 ## Project Structure
 
@@ -109,7 +109,7 @@ Neighbourly/
 │   │   ├── models/               Typed data models (Event, Review, JoinRequest, ...)
 │   │   ├── screens/              One folder per feature area (auth, explore, host, ...)
 │   │   ├── services/             Location service (geolocation + geocoding)
-│   │   ├── state/                AppSession — auth + profile state
+│   │   ├── state/                AppSession - auth + profile state
 │   │   └── theme/                Colours, typography, spacing from the design system
 │   ├── scripts/run.sh            Runs the app with Supabase credentials from .env.local
 │   └── .env.local.example        Template for local Supabase credentials
@@ -123,12 +123,12 @@ Neighbourly/
 
 ## Database Schema
 
-Defined in [`supabase/schema.sql`](supabase/schema.sql) and applied incrementally via [`supabase/migrations/`](supabase/migrations/). Every table has Row Level Security enabled — see the SQL for exact policies.
+Defined in [`supabase/schema.sql`](supabase/schema.sql) and applied incrementally via [`supabase/migrations/`](supabase/migrations/). Every table has Row Level Security enabled - see the SQL for exact policies.
 
 | Table | Purpose |
 |---|---|
 | `profiles` | One row per user, auto-created on signup via trigger; verification status, location |
-| `events` | Hosted events — category, schedule, pricing, location, eligibility tags |
+| `events` | Hosted events - category, schedule, pricing, location, eligibility tags |
 | `join_requests` | A participant's request to join an event, with host-managed status |
 | `verification_requests` | Self-declared ID submissions, queued for admin review |
 | `reviews` | Post-event host ratings and comments |
@@ -161,7 +161,7 @@ supabase db push
 ```bash
 cp .env.local.example .env.local
 ```
-Fill in your project's **URL** and **anon/public key** (Dashboard → Project Settings → API). These are the public client keys — safe by design, access is enforced by Row Level Security, not secrecy.
+Fill in your project's **URL** and **anon/public key** (Dashboard → Project Settings → API). These are the public client keys - safe by design, access is enforced by Row Level Security, not secrecy.
 
 ## Running the App
 
