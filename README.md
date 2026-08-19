@@ -55,6 +55,8 @@ The visual language - colour system, typography (Comfortaa + Plus Jakarta Sans),
 </td>
 </tr>
 </table>
+<img src="docs/screenshots/nearwood.png" width="220" alt="Identity verification flow, alternate export"/>
+
 
 Full-resolution originals, along with the Stitch-generated `DESIGN.md` (design tokens) and `code.html` (reference markup) for each screen, are in [`Mockup/`](Mockup/).
 
