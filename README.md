@@ -57,7 +57,7 @@ The visual language - colour system, typography (Comfortaa + Plus Jakarta Sans),
 </table>
 
 <img width="471" height="956" alt="image" src="https://github.com/user-attachments/assets/24c8f8fc-34a9-4983-861b-62b48fe38fbd" />
-<img width="483" height="957" alt="image" src="https://github.com/user-attachments/assets/6be22a10-47e7-4e47-bb4a-c88f0480b22d" />
+<img width="479" height="958" alt="image" src="https://github.com/user-attachments/assets/c1b2763e-da07-4ce4-a0b5-a18721e15b1c" />
 <img width="475" height="959" alt="image" src="https://github.com/user-attachments/assets/b746f351-d2a5-4681-aa53-13c2d8212017" />
 <img width="483" height="951" alt="image" src="https://github.com/user-attachments/assets/2d78b964-0a26-47a2-9ca2-ccb00fccc215" />
 
